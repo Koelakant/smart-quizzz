@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дизайн-проект помещения — Квиз</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Подключаем шрифты из Figma -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+
+        <main class="main-content">
+            <section class="quiz-section">
+                <div class="quiz-card">
+
+                    <!-- Progress Header -->
+                    <div class="progress-header">
+                        <div class="header-text">
+                            <span class="step-label">Вопрос №{{ currentStep + 1 }}</span>
+                            <h2 class="question-title">{{ questions[currentStep].title }}</h2>
+                        </div>
+                        <div class="progress-bar-wrapper">
+                            <div class="progress-bg">
+                                <div class="progress-fill" :style="{ width: progressWidth + '%' }"></div>
+                            </div>
+                            <span class="progress-counter">{{ currentStep + 1 }}/6</span>
+                        </div>
+                    </div>
+
+                    <!-- Question Content -->
+                    <div class="question-content">
+                        <p class="question-hint">{{ questions[currentStep].hint }}</p>
+
+                        <!-- Step 1, 4, 5: Single Choice -->
+                        <div v-if="questions[currentStep].type === 'single'" class="options-container">
+                            <button v-for="opt in questions[currentStep].options" :key="opt.id" class="choice-chip"
+                                :class="{ 'selected': answers[questions[currentStep].id] === opt.value }"
+                                @click="selectSingle(questions[currentStep].id, opt.value)">
+                                <div class="chip-text">{{ opt.text }}</div>
+                                <div class="chip-radio"></div>
+                            </button>
+                        </div>
+
+                        <!-- Step 2: Multiple Choice -->
+                        <div v-if="questions[currentStep].type === 'multiple'" class="options-grid">
+                            <button v-for="opt in questions[currentStep].options" :key="opt.id" class="choice-chip"
+                                :class="{ 'selected': isSelected(questions[currentStep].id, opt.value) }"
+                                @click="toggleMultiple(questions[currentStep].id, opt.value)">
+                                <div class="chip-text">{{ opt.text }}</div>
+                                <div class="chip-radio"></div>
+                            </button>
+                        </div>
+
+                        <!-- Step 3: Slider -->
+                        <div v-if="questions[currentStep].type === 'slider'" class="slider-container">
+                            <div class="area-display">Площадь: {{ answers.area }} м²</div>
+                            <input type="range" min="20" max="300" step="5" v-model="answers.area" class="range-slider">
+                        </div>
+
+                        <!-- Step 4: Styles (Cards) -->
+                        <div v-if="questions[currentStep].type === 'style'" class="style-grid">
+                            <div v-for="opt in questions[currentStep].options" :key="opt.id" class="style-card"
+                                :class="{ 'selected': answers.style === opt.value }"
+                                @click="selectSingle('style', opt.value)">
+                                <div class="style-img" :style="{ backgroundImage: 'url(' + opt.img + ')' }"></div>
+                                <span class="style-name">{{ opt.text }}</span>
+                                <div class="chip-radio"></div>
+                            </div>
+                        </div>
+
+                        <!-- Step 6: Form -->
+                        <div v-if="questions[currentStep].type === 'form'" class="contact-form">
+                            <input type="text" placeholder="Имя" v-model="answers.name" class="form-input">
+                            <input type="tel" placeholder="Телефон*" v-model="answers.phone" class="form-input"
+                                required>
+                            <input type="email" placeholder="E-mail" v-model="answers.email" class="form-input">
+                            <textarea placeholder="Комментарий" v-model="answers.comment"
+                                class="form-input textarea"></textarea>
+                            <p class="required-hint">* – обязательные поля</p>
+
+                            <label class="checkbox-container">
+                                <input type="checkbox" v-model="answers.agreement">
+                                <span class="checkmark"></span>
+                                <span class="agreement-text">Я соглашаюсь на обработку персональных данных</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="nav-controls" :class="{ 'form-nav': currentStep === 5 }">
+                        <button v-if="currentStep > 0" @click="prevStep" class="back-btn">
+                            <i class="back-icon"></i> Вернуться назад
+                        </button>
+                        <button class="next-btn" :disabled="!isStepValid" @click="nextStep">
+                            {{ currentStep === 5 ? 'Получить консультацию' : 'Далее' }}
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Vue CDN -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>

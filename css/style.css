@@ -1,0 +1,328 @@
+:root {
+    --primary: #006592;
+    --primary-light: rgba(120, 198, 253, 0.2);
+    --text-main: #2C3437;
+    --text-muted: #596064;
+    --text-blue: #0C4A6E;
+    --bg-page: #F7F9FB;
+    --bg-chip: #F0F4F7;
+    --white: #FFFFFF;
+    --border-grey: #ACB3B7;
+    --gradient: linear-gradient(90deg, #006592 0%, #78C6FD 100%);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    overflow-x: hidden;
+}
+
+.top-nav {
+    position: fixed;
+    width: 100%;
+    height: 68px;
+    background: rgba(248, 250, 252, 0.8);
+    backdrop-filter: blur(12px);
+    box-shadow: 0px 4px 32px rgba(44, 52, 55, 0.04);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-blue);
+    letter-spacing: -0.5px;
+}
+
+.main-content {
+    padding: 40px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.quiz-card {
+    width: 100%;
+    max-width: 672px;
+    background: var(--white);
+    border-radius: 48px;
+    box-shadow: 0px 32px 64px -12px rgba(0, 101, 146, 0.08);
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 40px;
+}
+
+.progress-header {
+    padding: 30px 30px 12px;
+}
+
+.step-label {
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    letter-spacing: 1.4px;
+}
+
+.question-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-top: 8px;
+}
+
+.progress-bar-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 16px;
+}
+
+.progress-bg {
+    flex-grow: 1;
+    height: 8px;
+    background: #DCE4E8;
+    border-radius: 9999px;
+    position: relative;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--gradient);
+    border-radius: 9999px;
+    transition: width 0.4s ease;
+}
+
+.progress-counter {
+    font-family: 'Manrope';
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.question-content {
+    padding: 0 30px 30px;
+    flex-grow: 1;
+}
+
+.question-hint {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.options-container,
+.options-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.choice-chip {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 24px;
+    background: var(--bg-chip);
+    border: 2px solid transparent;
+    border-radius: 32px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-size: 16px;
+    font-weight: 500;
+    color: #475263;
+    text-align: left;
+}
+
+.choice-chip.selected {
+    background: var(--primary-light);
+    border-color: var(--primary);
+    color: #003F5D;
+    font-weight: 600;
+}
+
+.chip-radio {
+    width: 24px;
+    height: 24px;
+    border: 2px solid var(--border-grey);
+    border-radius: 50%;
+    position: relative;
+}
+
+.choice-chip.selected .chip-radio {
+    background: var(--primary);
+    border-color: var(--primary);
+}
+
+.choice-chip.selected .chip-radio::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 8px;
+    background: url('data:image/svg+xml;utf8,<svg fill="white" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M0 11l2-2 5 5L18 3l2 2L7 18z"/></svg>') no-repeat center;
+    left: 5px;
+    top: 6px;
+}
+
+.area-display {
+    font-family: 'Manrope';
+    font-size: 24px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.range-slider {
+    width: 100%;
+    accent-color: var(--primary);
+}
+
+.style-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.style-card {
+    background: var(--bg-chip);
+    border-radius: 32px;
+    padding: 0 16px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    overflow: hidden;
+}
+
+.style-img {
+    width: 75px;
+    height: 75px;
+    background-size: cover;
+    background-position: center;
+}
+
+.style-name {
+    font-size: 14px;
+    flex-grow: 1;
+}
+
+.style-card.selected {
+    border-color: var(--primary);
+    background: var(--primary-light);
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 18px 24px;
+    background: var(--bg-chip);
+    border: none;
+    border-radius: 16px;
+    font-size: 16px;
+    outline: none;
+}
+
+.form-input.textarea {
+    height: 100px;
+    resize: none;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.nav-controls {
+    padding: 32px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--white);
+    border-radius: 0 0 48px 48px;
+    border-top: 1px solid var(--bg-chip);
+}
+
+.nav-controls.form-nav {
+    flex-direction: column-reverse;
+    gap: 20px;
+}
+
+.next-btn {
+    padding: 16px 40px;
+    background: var(--primary);
+    color: #F5F9FF;
+    border: none;
+    border-radius: 9999px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.next-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .question-title {
+        font-size: 24px;
+    }
+
+    .nav-title {
+        font-size: 20px;
+    }
+
+    .options-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .nav-controls.form-nav {
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 480px) {
+    .style-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .quiz-card {
+        border-radius: 0;
+        margin-bottom: 0;
+    }
+}
