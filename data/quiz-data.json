@@ -1,0 +1,24 @@
+{
+  "steps": [
+    {
+      "id": 1,
+      "type": "single-choice-image",
+      "question": "Тип помещения",
+      "options": [
+        {"id": "apt", "text": "Квартира", "img": "assets/img/apt.jpg"},
+        {"id": "house", "text": "Дом", "img": "assets/img/house.jpg"}
+      ]
+    },
+    {
+      "id": 2,
+      "type": "nested-list",
+      "question": "Материалы отделки",
+      "options": [
+        {
+          "category": "Дерево",
+          "suboptions": ["Дуб", "Орех", "Венге"]
+        }
+      ]
+    }
+  ]
+}
