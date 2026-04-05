@@ -1,5 +1,5 @@
 <template>
-  <div style="background-image: url(/backgrounds/5_BG.webp)" class="hero">
+  <div style="background-image: url(/backgrounds/6_BG.webp)" class="hero">
     <div class="flex items-center justify-center h-screen">
       <div class="w-7/8 sm:w-4/6 bg-white rounded-4xl overflow-hidden">
         <div class="p-6 step6-main-color-fade-light">
