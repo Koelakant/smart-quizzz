@@ -49,7 +49,6 @@
             <NuxtLink class="text-base text-gray-700 leading-relaxed" to="/questions/step1"> ← Вернуться назад </NuxtLink>
             <UButton
               :disabled="!isSelected"
-              color="error"
               class="pl-4 pr-4 rounded-4xl step2-main-color"
             >
               <NuxtLink class="text-base text-gray-300 leading-relaxed" :to="isSelected ? '/questions/step3' : null"> Далее </NuxtLink>
@@ -67,7 +66,6 @@ import { useQuestionStore } from "~/models/composables/stores/useQuestionStore";
 const store = useQuestionStore();
 
 const currentQuestion = store.questions.q2;
-  console.log(currentQuestion);
 
 const selectedAnswers = currentQuestion.userAnswer
   ? currentQuestion.userAnswer
@@ -112,7 +110,7 @@ const isSelected = computed(() => {
   background-color: rgb(10, 82, 114, 0.2) ;
 }
 .step2-main-color-fade-light {
-  background-color: rgb(10, 82, 114, 0.1) ;
+  background-color: rgb(244, 243, 255, 1) ;
 }
 .step2-main-color-outline {
   outline: rgb(10, 82, 114) ;

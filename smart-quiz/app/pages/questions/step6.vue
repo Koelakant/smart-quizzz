@@ -84,8 +84,7 @@
                 ← Вернуться назад
               </NuxtLink>
               <UButton
-                color="error"
-                class="pl-4 pr-4 rounded-4xl text-base text-gray-300 leading-relaxed"
+                class="pl-4 pr-4 rounded-4xl text-base text-gray-300 leading-relaxed step6-main-color"
                 @click="onSubmit"
               >
                 Получить консультацию
@@ -118,8 +117,6 @@ const store = useQuestionStore();
 const toast = useToast();
 
 const { saveCustomer } = useCustomer();
-
-console.log(store.value);
 
 const currentQuestion = store.questions.q6;
 
@@ -169,11 +166,6 @@ const onSubmit = async (event) => {
   try {
     const result = await form.value.validate();
 
-    console.log("VALIDATIONG");
-    console.log(result);
-
-    console.log("Отправка данных:", customer.value);
-    // store.questions.1
     saveCustomer({
       room_type: store.questions.q1.userAnswer,
       zones: store.questions.q2.userAnswer,
@@ -188,7 +180,7 @@ const onSubmit = async (event) => {
       utm_source: "",
     });
   } catch (err) {
-    console.log("Заполните форму:", customer.value);
+    console.error(err);
 
     toast.add({
       title: "Ошибка!",
@@ -207,7 +199,7 @@ const onSubmit = async (event) => {
   background-color: rgb(170, 91, 18, 0.2) ;
 }
 .step6-main-color-fade-light {
-  background-color: rgb(170, 91, 18, 0.1) ;
+  background-color: rgb(255, 250, 243, 1) ;
 }
 .step6-main-color-outline {
   outline: rgb(170, 91, 18) ;
