@@ -2,7 +2,7 @@
   <div style="background-image: url(/backgrounds/2_BG.webp)" class="hero">
     <div class="flex items-center justify-center h-screen">
       <div class="w-7/8 sm:w-4/6 bg-white rounded-4xl overflow-hidden">
-        <div class="p-8 main-color-fade-light">
+        <div class="p-6 step2-main-color-fade-light">
           <div class="text-sm text-gray-400 mb-2">ВОПРОС № 2</div>
 
           <h2 class="text-2xl font-bold text-gray-800 mb-2">
@@ -15,7 +15,7 @@
               v-model="currentQuestion.step"
               class="w-5/6"
               :ui="{
-                indicator: 'main-color'
+                indicator: 'step2-main-color'
               }"
             ></UProgress>
             <div class="flex justify-center w-1/6">
@@ -35,22 +35,22 @@
               :items="currentQuestion.options"
               :ui="{
                 fieldset: 'grid grid-cols-2',
-                item: 'rounded-3xl main-color-fade ',
-                base: 'main-color-outline'
+                item: 'rounded-3xl step2-main-color-fade',
+                base: 'step2-main-color-outline'
               }"
               indicator="end"
               :uiRadio="{
-                wrapper: 'main-color-outline'
+                wrapper: 'step2-main-color-outline'
               }"
             />
           </div>
 
           <div class="flex items-center justify-between">
-            <NuxtLink class="text-base text-gray-500 dark:text-gray-300 leading-relaxed" to="/questions/step1"> ← Вернуться назад </NuxtLink>
+            <NuxtLink class="text-base text-gray-700 leading-relaxed" to="/questions/step1"> ← Вернуться назад </NuxtLink>
             <UButton
               :disabled="!isSelected"
               color="error"
-              class="pl-4 pr-4 rounded-4xl main-color"
+              class="pl-4 pr-4 rounded-4xl step2-main-color"
             >
               <NuxtLink class="text-base text-gray-300 leading-relaxed" :to="isSelected ? '/questions/step3' : null"> Далее </NuxtLink>
             </UButton>
@@ -105,16 +105,16 @@ const isSelected = computed(() => {
 5 – F3FFF3
 6– FFFAF3 -->
 <style>
-.main-color {
+.step2-main-color {
   background-color: rgb(10, 82, 114) ;
 }
-.main-color-fade {
+.step2-main-color-fade {
   background-color: rgb(10, 82, 114, 0.2) ;
 }
-.main-color-fade-light {
+.step2-main-color-fade-light {
   background-color: rgb(10, 82, 114, 0.1) ;
 }
-.main-color-outline {
+.step2-main-color-outline {
   outline: rgb(10, 82, 114) ;
 }
 </style>

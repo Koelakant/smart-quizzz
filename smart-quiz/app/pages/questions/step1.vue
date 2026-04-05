@@ -2,7 +2,7 @@
   <div style="background-image: url(/backgrounds/1_BG.webp)" class="hero">
     <div class="flex items-center justify-center h-screen">
       <div class="w-7/8 sm:w-4/6 bg-white rounded-4xl overflow-hidden">
-        <div class="p-8 main-color-fade-light">
+        <div class="p-6 step1-main-color-fade-light">
           <div class="text-sm text-gray-400 mb-2">ВОПРОС № 1</div>
 
           <h2 class="text-2xl font-bold text-gray-800 mb-2">
@@ -15,7 +15,7 @@
               v-model="currentQuestion.step"
               class="w-5/6"
               :ui="{
-                indicator: 'main-color'
+                indicator: 'step1-main-color'
               }"
             ></UProgress>
             <div class="flex justify-center w-1/6">
@@ -35,7 +35,7 @@
               variant="card"
               :items="currentQuestion.options"
               :ui="{
-                item: 'rounded-3xl main-color-fade'
+                item: 'rounded-3xl step1-main-color-fade'
               }"
             />
           </div>
@@ -43,7 +43,7 @@
           <div class="flex items-center justify-end">
             <UButton
               :disabled="!isSelected"
-              class="pl-6 pr-6 rounded-4xl main-color"
+              class="pl-6 pr-6 rounded-4xl step1-main-color"
             >
               <NuxtLink :to="isSelected ? '/questions/step2' : null">
                 Далее
@@ -82,13 +82,13 @@ const isSelected = computed(() => {
 </script>
 
 <style>
-.main-color {
+.step1-main-color {
   background-color: rgb(174, 36, 72) ;
 }
-.main-color-fade {
+.step1-main-color-fade {
   background-color: rgb(174, 36, 72, 0.2) ;
 }
-.main-color-fade-light {
+.step1-main-color-fade-light {
   background-color: rgb(174, 36, 72, 0.1) ;
 }
 </style>

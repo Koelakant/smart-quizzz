@@ -2,7 +2,7 @@
   <div style="background-image: url(/backgrounds/5_BG.webp)" class="hero">
     <div class="flex items-center justify-center h-screen">
       <div class="w-7/8 sm:w-4/6 bg-white rounded-4xl overflow-hidden">
-        <div class="p-8">
+        <div class="p-6 step6-main-color-fade-light">
           <div class="text-sm text-gray-400 mb-2">ВОПРОС № 6</div>
 
           <h2 class="text-2xl font-bold text-gray-800 mb-2">
@@ -14,6 +14,9 @@
               :max="Number(6)"
               v-model="currentQuestion.step"
               class="w-5/6"
+              :ui="{
+                indicator: 'step6-main-color'
+              }"
             ></UProgress>
             <div class="flex justify-center w-1/6">
               {{ currentQuestion.step }}/{{ store.totalQuestions }}
@@ -76,13 +79,13 @@
             <div class="flex items-center justify-between">
               <NuxtLink
                 to="/questions/step5"
-                class="text-gray-600 hover:text-gray-900"
+                class="text-base  leading-relaxed text-gray-700"
               >
                 ← Вернуться назад
               </NuxtLink>
               <UButton
                 color="error"
-                class="pl-4 pr-4 rounded-4xl"
+                class="pl-4 pr-4 rounded-4xl text-base text-gray-300 leading-relaxed"
                 @click="onSubmit"
               >
                 Получить консультацию
@@ -196,3 +199,17 @@ const onSubmit = async (event) => {
   }
 };
 </script>
+<style>
+.step6-main-color {
+  background-color: rgb(170, 91, 18) ;
+}
+.step6-main-color-fade {
+  background-color: rgb(170, 91, 18, 0.2) ;
+}
+.step6-main-color-fade-light {
+  background-color: rgb(170, 91, 18, 0.1) ;
+}
+.step6-main-color-outline {
+  outline: rgb(170, 91, 18) ;
+}
+</style>
