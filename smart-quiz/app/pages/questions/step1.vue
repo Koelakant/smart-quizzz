@@ -75,8 +75,6 @@ const isSelected = computed(() => {
   currentQuestion.isAnswered = true;
   currentQuestion.userAnswer = selectedAnswer.value;
 
-  console.log(store.questions.q1.userAnswer);
-
   return selectedAnswer.value.trim() != "";
 });
 </script>
@@ -89,6 +87,6 @@ const isSelected = computed(() => {
   background-color: rgb(174, 36, 72, 0.2) ;
 }
 .step1-main-color-fade-light {
-  background-color: rgb(174, 36, 72, 0.1) ;
+  background-color: rgb(255, 243, 246, 1) ;
 }
 </style>

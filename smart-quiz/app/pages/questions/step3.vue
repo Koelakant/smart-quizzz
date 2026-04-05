@@ -80,7 +80,7 @@ watch(selectedAnswer, (newValue) => {
   background-color: rgb(29, 172, 156, 0.2) ;
 }
 .step3-main-color-fade-light {
-  background-color: rgb(29, 172, 156, 0.1) ;
+  background-color: rgb(243, 255, 253, 1) ;
 }
 .step3-main-color-outline {
   outline: rgb(29, 172, 156) ;

@@ -85,7 +85,7 @@ const isSelected = computed(() => {
   background-color: rgb(201, 124, 89, 0.2) ;
 }
 .step5-main-color-fade-light {
-  background-color: rgb(201, 124, 89, 0.1) ;
+  background-color: rgb(243, 255, 243, 1) ;
 }
 .step5-main-color-outline {
   outline: rgb(201, 124, 89) ;
